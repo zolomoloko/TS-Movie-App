@@ -1,10 +1,10 @@
 "use client"
 import Link from "next/link";
 import { MovieCard } from "./MovieCart";
-import { getTopMovies } from "@/utils/getTopMovies";
 import { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { Movie } from "@/types";
+import { getTopMovies } from "@/utils/getTopMovies";
 
 export const TopRated = () => {
     const [upTopMovies, setUpTopMovies] = useState<Movie[]>([]);

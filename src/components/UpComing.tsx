@@ -1,10 +1,11 @@
 "use client"
-import { getUpComingMovies } from "@/utils/getUpComingMovies";
+
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { MovieCard } from "./MovieCart";
 import { Movie } from "@/types";
+import { getUpComingMovies } from "@/utils/getUpComingMovies";
 
 export const UpComing = () => {
   const [upComingMovies, setUpComingMovies] = useState<Movie[]>([]);

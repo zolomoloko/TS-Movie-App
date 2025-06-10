@@ -2,10 +2,10 @@
 import Autoplay from "embla-carousel-autoplay";
 
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "./ui/carousel";
-import { getNowPlayingMovies } from "@/utils/getCarousel";
 import { useEffect, useState } from "react";
 import { MovieCarouselItem } from "./MovieCarouselItem";
 import { Movie } from "@/types";
+import { getNowPlayingMovies } from "@/utils/getCarousel";
 
 export const MovieCarousel = () => {
   const [nowPlayingMovie, setNowPlayingMovie] = useState<Movie[]>([]);

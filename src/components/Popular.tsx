@@ -2,9 +2,10 @@
 import { useEffect, useState } from "react";
 import { MovieCard } from "./MovieCart";
 import Link from "next/link";
-import { getPopularMovies } from "@/utils/get Popular";
+
 import { ArrowRight } from "lucide-react";
 import { Movie } from "@/types";
+import { getPopularMovies } from "@/utils/getPopular";
 
 export const Popular = () => {
 
