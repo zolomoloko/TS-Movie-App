@@ -1,27 +1,27 @@
-"use client"
+"use client";
 import { MovieTrailer } from "@/components/MovieTrailer";
 import { MovieDetails } from "@/types";
 import { getMovieById } from "@/utils/getMovieById";
 import { Star } from "lucide-react";
 import { useEffect, useState } from "react";
 
-export const DetailsHeader = ({ movieId }:  { movieId: string }) => {
+export const DetailsHeader = ({ movieId }: { movieId: string }) => {
   const [movie, setMovie] = useState<MovieDetails>({} as MovieDetails);
-  const time = movie?.runtime
+  const time = movie?.runtime;
   const runTime = `${Math.floor(time / 60)}h ${time % 60}m`;
-  console.log("hi",movie)
+
   useEffect(() => {
     const getMovie = async () => {
       if (!movieId) return;
       try {
         const data = await getMovieById(movieId);
-        setMovie(data)
+        setMovie(data);
       } catch (error) {
         console.error("Failed to fetch movie:", error);
       }
     };
-    getMovie()
-  }, );
+    getMovie();
+  });
   return (
     <div className="flex flex-col gap-4">
       <div className="flex justify-between px-5 md:px-0">
@@ -64,6 +64,26 @@ export const DetailsHeader = ({ movieId }:  { movieId: string }) => {
         <div className="absolute flex items-center gap-3 top-[75%] left-[10%] md:top-[80%] md:left-[38%]">
           <MovieTrailer movieId={movieId} />
           <p className="font-normal text-[16px] text-white">2:35</p>
+        </div>
+      </div>
+      <div className="pt-[32px] px-5 md:px-0 flex gap-8 justify-between">
+        <img
+          src={`https://image.tmdb.org/t/p/original/${movie?.poster_path}`}
+          alt="zurag"
+          className="w-[100px] h-[148px] md:hidden"
+        />
+        <div>
+          <div className="flex gap-3 flex-wrap font-bold">
+            {movie.genres?.map((genre) => (
+              <span
+                key={genre.id}
+                className="border-[#e4e4e7] border-[1px] rounded-full px-[10px] py-[2px]"
+              >
+                {genre.name}
+              </span>
+            ))}
+          </div>
+          <p className="text-[16px] font-normal pt-5">{movie?.overview}</p>
         </div>
       </div>
     </div>

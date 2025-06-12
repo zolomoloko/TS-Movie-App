@@ -34,3 +34,33 @@ export type MovieDetails = {
   vote_average: number;
   vote_count: number;
 };
+export type MovieTrailerProps = {
+  id: string;
+  iso_639_1: string;
+  iso_3166_1: string;
+  key: string;
+  name: string;
+  official: boolean;
+  published_at: string;
+  site: string;
+  size: number;
+  type: string;
+};
+export type director = {
+  adult: boolean;
+  credit_id: string;
+  department: string;
+  gender: number;
+  id: number;
+  job: string;
+  known_for_department: string;
+  name: string;
+  original_name: string;
+  popularity: number;
+  profile_path: string;
+};
+export type Staff = {
+  cast: {name: string}[];
+  crew: director[];
+  id: number;
+};

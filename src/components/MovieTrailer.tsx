@@ -9,9 +9,10 @@ import { Play } from "lucide-react";
 import { useEffect, useState } from "react";
 import YouTube from "react-youtube";
 import { Button } from "./ui/button";
+import { MovieTrailerProps } from "@/types";
 
 export const MovieTrailer = ({ movieId }: { movieId: string }) => {
-  const [trailer, setTrailer] = useState([]);
+  const [trailer, setTrailer] = useState<MovieTrailerProps[]>([]);
 
   useEffect(() => {
     const getMovieTrailerById = async () => {
@@ -19,7 +20,6 @@ export const MovieTrailer = ({ movieId }: { movieId: string }) => {
       try {
         const data = await getMovieTrailer(movieId);
         setTrailer(data.results);
-        // console.log("fff",data)
       } catch (error) {
         console.error("Failed to fetch movie:", error);
       }
@@ -29,6 +29,7 @@ export const MovieTrailer = ({ movieId }: { movieId: string }) => {
   const MovieTrailer = trailer.find(
     (video) => video.name === "Official Trailer"
   );
+ 
 
   return (
     <Dialog>
@@ -39,6 +40,7 @@ export const MovieTrailer = ({ movieId }: { movieId: string }) => {
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-fit bg-transparent border-none">
+        <DialogTitle className="sr-only">Movie Trailer</DialogTitle>
         <YouTube
           videoId={MovieTrailer?.key}
           opts={{
