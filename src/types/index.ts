@@ -1,3 +1,4 @@
+//  MovieCarousel
 export type Movie = {
   title: string;
   vote_average: number;
@@ -10,6 +11,7 @@ export type Genre = {
   id: number;
   name: string;
 };
+//details
 export type MovieDetails = {
   adult: boolean;
   backdrop_path: string;

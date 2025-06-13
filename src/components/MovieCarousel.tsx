@@ -15,7 +15,6 @@ export const MovieCarousel = () => {
     const fetchMovies = async ()=>{
       const movies = await getNowPlayingMovies();
       setNowPlayingMovie(movies);
-      console.log(movies)
     };
     fetchMovies()
     // setLoading(false)
